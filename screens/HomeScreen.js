@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { StyleSheet, View,Image, Alert} from 'react-native';
-import { ScrollView, FlatList } from 'react-native-gesture-handler';
+import { StyleSheet, View,Image, Alert, VirtualizedList} from 'react-native';
+import { ScrollView, FlatList, RectButton } from 'react-native-gesture-handler';
 import { Text,Button} from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
 
 function Item({ title }) {
   return (
@@ -11,21 +12,23 @@ function Item({ title }) {
   );
 }
 
+
+function OptionButton({ icon, label, onPress, isLastOption }) {
+  return (
+    <RectButton style={[styles.option, isLastOption && styles.lastOption]} onPress={onPress}>
+      <View style={{ flexDirection: 'row' }}>
+        <View style={styles.optionIconContainer}>
+          <Ionicons name={icon} size={22} color="rgba(0,0,0,0.35)" />
+        </View>
+        <View style={styles.optionTextContainer}>
+          <Text style={styles.optionText}>{label}</Text>
+        </View>
+      </View>
+    </RectButton>
+  );
+}
+
 export default function HomeScreen({navigation}) {
-  const DATA = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-    },
-  ]
 
   return (
         <View style={styles.container}>
@@ -45,10 +48,21 @@ export default function HomeScreen({navigation}) {
             </View>
             <View style={styles.orderHistory}>
               <Text style={{fontWeight:"bold",fontSize:22}}>Past Orders</Text>
-              <FlatList
-                data={DATA}
-                renderItem={({ item }) => <Item title={item.title} />}
-                keyExtractor={item => item.id}
+              
+               <OptionButton
+                icon="md-school"
+                label="Order# 1"
+              />
+
+              <OptionButton
+                icon="md-compass"
+                label="Order# 1"
+              />
+
+              <OptionButton
+                icon="ios-chatboxes"
+                label="Order# 1"
+                isLastOption
               />
             </View>
              
@@ -92,6 +106,21 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
+  },
+  optionIconContainer: {
+    marginRight: 12,
+  },
+  option: {
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+  },
+  lastOption: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  optionText: {
+    fontSize: 15,
+    alignSelf: 'flex-start',
+    marginTop: 1,
   },
 
 });

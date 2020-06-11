@@ -1,48 +1,32 @@
-import { Ionicons } from '@expo/vector-icons';
-import * as WebBrowser from 'expo-web-browser';
+
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import { Avatar,Text } from 'react-native-elements';
 
 export default function AccountScreen() {
+  const userName = 'Alex';
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <OptionButton
-        icon="md-school"
-        label="Read the Expo documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
-      />
-
-      <OptionButton
-        icon="md-compass"
-        label="Read the React Navigation documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
-      />
-
-      <OptionButton
-        icon="ios-chatboxes"
-        label="Ask a question on the forums"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
-        isLastOption
-      />
+          
+            <View style={{flexDirection:'row',justifyContent:'center'}}>
+            <Text h3 h3Style={{fontWeight:'bold'}}>{userName  } </Text>
+            <Avatar
+                source={{
+                    uri:
+                    'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+                }}
+                size='xlarge'
+                rounded
+                showAccessory
+                onAccessoryPress={ () => Alert.alert("Chnage picture")}
+                />
+            </View>
     </ScrollView>
   );
 }
 
-function OptionButton({ icon, label, onPress, isLastOption }) {
-  return (
-    <RectButton style={[styles.option, isLastOption && styles.lastOption]} onPress={onPress}>
-      <View style={{ flexDirection: 'row' }}>
-        <View style={styles.optionIconContainer}>
-          <Ionicons name={icon} size={22} color="rgba(0,0,0,0.35)" />
-        </View>
-        <View style={styles.optionTextContainer}>
-          <Text style={styles.optionText}>{label}</Text>
-        </View>
-      </View>
-    </RectButton>
-  );
-}
 
 const styles = StyleSheet.create({
   container: {

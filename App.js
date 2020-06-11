@@ -108,6 +108,7 @@ export default function App(props) {
               headerTintColor: '#fff',
               headerStyle:{
                 backgroundColor: "#0071bd",
+                height:80,
               },
             }}>
                 <Stack.Screen name='SignIn' options={{ headerShown: false }} component={SignInScreen}/>

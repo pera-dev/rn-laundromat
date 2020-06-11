@@ -4,10 +4,23 @@ import * as React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
 import AccountScreen from '../screens/AccountScreen';
 import HomeScreen from '../screens/HomeScreen';
-import { Image } from 'react-native';
+import { Image,View,} from 'react-native';
+import SettingsScreen from '../screens/SettingsScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
+
+function LogoHeader() {
+  return (
+    <View>
+      <Image 
+        style={{width:140,height:80,marginTop:10,}}
+        resizeMode="contain"
+        source={require('../assets/images/logo_header.png')}
+      />
+    </View>
+  )
+}
 
 export default function BottomTabNavigator({ navigation, route }) {
   // Set the header title on the parent stack navigator depending on the
@@ -15,11 +28,11 @@ export default function BottomTabNavigator({ navigation, route }) {
   // https://reactnavigation.org/docs/en/screen-options-resolution.html
 
   navigation.setOptions({ 
-    headerTitle: getHeaderTitle(route),
+    headerTitle: () => <LogoHeader/>,
   });
-
+  
   return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME} backBehavior='initialRoute'>
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}

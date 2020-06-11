@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     },
     textInput:{
         marginVertical:10,
+        padding:10,
         height: 40, 
         borderColor: 'gray', 
         borderWidth: 1,
