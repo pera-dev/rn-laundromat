@@ -13,6 +13,10 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^10.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@fortawesome/react-native-fontawesome": "^0.2.5",
     "@react-native-community/masked-view": "0.1.6",
     "@react-navigation/bottom-tabs": "^5.3.1",
     "@react-navigation/native": "^5.2.1",
@@ -25,6 +29,7 @@
     "expo-linking": "^1.0.1",
     "expo-splash-screen": "^0.2.3",
     "expo-web-browser": "~8.2.0",
+    "font-awesome": "^4.7.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
@@ -34,6 +39,7 @@
     "react-native-safe-area-context": "0.7.3",
     "react-native-screens": "~2.2.0",
     "react-native-slideshow": "^1.0.1",
+    "react-native-svg": "^12.1.0",
     "react-native-timed-slideshow": "^1.2.1",
     "react-native-vector-icons": "^6.6.0",
     "react-native-web": "~0.11.7"
