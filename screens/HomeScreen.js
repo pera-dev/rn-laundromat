@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { StyleSheet, View,Image, Alert, VirtualizedList} from 'react-native';
-import { ScrollView, FlatList, RectButton } from 'react-native-gesture-handler';
-import { Text,Button} from 'react-native-elements';
+import { StyleSheet, View,Image, Alert, VirtualizedList,Button} from 'react-native';
+import { ScrollView, FlatList, RectButton, TouchableOpacity } from 'react-native-gesture-handler';
+import { Text} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 
 function Item({ title }) {
@@ -33,13 +33,20 @@ export default function HomeScreen({navigation}) {
   return (
         <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+            <View style={{paddingHorizontal:20}}>
+              <Text style={{fontSize:24,fontWeight:'bold'}}>Latest Promotions</Text>
+            </View>
+
             <View style={{minHeight:200,marginHorizontal:20}}>
               <Image
                 source={require('../assets/images/card.png')}
               />
             </View>
-            <View style={{padding: 20}}>
-              <Button title='Create a basket' onPress={ () => navigation.navigate('CreateBasket')} /> 
+            <View style={{padding: 20,overflow:'visible'}}>
+              <TouchableOpacity style={styles.orderButton} 
+                onPress={ () => navigation.navigate('CreateBasket')}>
+                  <Text> Create Order </Text>
+                </TouchableOpacity>
             </View>
             
             <View style={styles.orderStatus}>
@@ -75,14 +82,28 @@ export default function HomeScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: '#fff',
-  },
+    backgroundColor: 'rgba(240,240,240,0.5)',
+    },
   contentContainer: {
     paddingTop: 30,
   },
   logo:{
     width:50,
     height:100,
+  },
+  orderButton:{
+    alignItems :"center",
+    padding:15,
+    backgroundColor:'#222222',
+    borderRadius:30,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.43,
+    shadowRadius: 9.51,
+    elevation: 15,
   },
   orderStatus:{
     padding:10,
@@ -106,6 +127,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
+    fontFamily: 'DMSans_500Medium',
   },
   optionIconContainer: {
     marginRight: 12,

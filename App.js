@@ -3,6 +3,12 @@ import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Image, AsyncStorage} from 'react-native';
 import { Appearance,AppearanceProvider, } from 'react-native-appearance';
 import { NavigationContainer,DefaultTheme,DarkTheme} from '@react-navigation/native';
+import { 
+  useFonts,
+  DMSans_400Regular,
+  DMSans_500Medium,
+  DMSans_700Bold,
+} from '@expo-google-fonts/dm-sans';
 
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
@@ -11,8 +17,33 @@ import CreateBasketScreen from './screens/CreateBasketScreen';
 import OrderStatusScreen from './screens/OrderStatusScreen';
 import SignInScreen from './screens/auth/SignInScreen';
 import SignUpScreen from './screens/auth/SignUpScreen';
+import VerificationScreen from "./screens/auth/VerificationScreen";
+import * as firebase from "firebase";
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { AppLoading } from 'expo';
 
 const Stack = createStackNavigator();
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCIk7URulZ800O4x8YRu5qid7ivjUDliYE",
+  authDomain: "laundromat-test.firebaseapp.com",
+  databaseURL: "https://laundromat-test.firebaseio.com",
+  projectId: "laundromat-test",
+  storageBucket: "laundromat-test.appspot.com",
+  messagingSenderId: "115420084820",
+  appId: "1:115420084820:web:242c7f15ddba70b759cbc1",
+  measurementId: "G-YWQXM4Z7MP"
+};
+
+try {
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
+} catch (error) {
+  console.error(error);
+}
 
 export default function App(props) {
 
@@ -51,6 +82,7 @@ export default function App(props) {
   );
 
   React.useEffect(() => {
+
     const bootstrapAsync = async() => {
 
       let userToken;
@@ -92,10 +124,22 @@ export default function App(props) {
 
   const colorScheme = Appearance.getColorScheme();
 
+  let [fontsLoaded] = useFonts({
+    DMSans_400Regular,
+    DMSans_500Medium,
+    DMSans_700Bold,
+  });
+  if(!fontsLoaded){
+    return <AppLoading />;
+  }
+
+  //const store = createStore()
+
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
+      //<Provider store={store}>
       <Authcontext.Provider value={authContext}>
         <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
@@ -111,17 +155,31 @@ export default function App(props) {
                 height:80,
               },
             }}>
-                <Stack.Screen name='SignIn' options={{ headerShown: false }} component={SignInScreen}/>
-                <Stack.Screen name='SignUp' options={{ headerShown: false }} component={SignUpScreen}/>
-                <Stack.Screen name="Home" component={BottomTabNavigator} />
-                <Stack.Screen name="CreateBasket"  component={CreateBasketScreen}/>
-                <Stack.Screen name="OrderStatus" component={OrderStatusScreen}/>
+                  <Stack.Screen name='SignIn' options={{ headerShown: false }} component={SignInScreen}/>
+                  <Stack.Screen name='Verification' options={{ headerShown: false }} component={VerificationScreen}/>
+                  <Stack.Screen name='SignUp' options={{ headerShown: false }} component={SignUpScreen}/>
+                  <Stack.Screen name="Home" component={BottomTabNavigator} />
+                  <Stack.Screen name="CreateBasket"  component={CreateBasketScreen}/>
+                  <Stack.Screen name="OrderStatus" component={OrderStatusScreen}/>  
+             {/*  {state.userToken == null ? (
+                <>
+                  <Stack.Screen name='SignIn' options={{ headerShown: false }} component={SignInScreen}/>
+                  <Stack.Screen name='Verification' options={{ headerShown: false }} component={VerificationScreen}/>
+                  <Stack.Screen name='SignUp' options={{ headerShown: false }} component={SignUpScreen}/>
+                </>
+              ):(
+                <>
+                  <Stack.Screen name="Home" component={BottomTabNavigator} />
+                  <Stack.Screen name="CreateBasket"  component={CreateBasketScreen}/>
+                  <Stack.Screen name="OrderStatus" component={OrderStatusScreen}/>      
+                </>
+              )}  */}
           </Stack.Navigator>
           </NavigationContainer>
         </AppearanceProvider>
       </View>
       </Authcontext.Provider>
-
+      //</Provider>
       
     );
   }

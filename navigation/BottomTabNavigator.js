@@ -29,6 +29,8 @@ export default function BottomTabNavigator({ navigation, route }) {
 
   navigation.setOptions({ 
     headerTitle: () => <LogoHeader/>,
+    headerLeft: null,
+    gesturesEnabled: false,
   });
   
   return (
