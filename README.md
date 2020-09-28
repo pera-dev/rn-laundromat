@@ -6,6 +6,8 @@
 - [Documentation](#documentation)
 - [Development](#development)
     - [Clone the repo](#clone-the-repo)
+    - [Install Dependanices](#install-dependanices)
+  - [Development Commands](#development-commands)
     - [Chekout to dev](#chekout-to-dev)
     - [Push the changes](#push-the-changes)
 - [Contribution](#contribution)
@@ -26,6 +28,20 @@ Use ```dev``` branch for development of the project
 git clone https://github.com/pera-dev /rn-laundromat.git 
 ```
 
+### Install Dependanices
+```
+npm i
+```
+
+## Development Commands
+
+```
+// To start the developmenet server
+
+expo start
+
+```
+
 ### Chekout to dev
 
 ``` 
@@ -41,3 +57,4 @@ git push
 
 # Contribution
 
+All contributors can be found [here](https://github.com/pera-dev/rn-laundromat/graphs/contributors)
