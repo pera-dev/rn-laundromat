@@ -7,7 +7,8 @@ import { NavigationContainer,DefaultTheme,DarkTheme} from '@react-navigation/nat
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
-import CreateBasketScreen from './screens/CreateBasketScreen';
+import CreateBasketScreen from './screens/createBasket/CreateBasketScreen';
+import CheckoutScreen from './screens/createBasket/CheckoutScreen';
 import OrderStatusScreen from './screens/OrderStatusScreen';
 import SignInScreen from './screens/auth/SignInScreen';
 import SignUpScreen from './screens/auth/SignUpScreen';
@@ -116,6 +117,7 @@ export default function App(props) {
                 <Stack.Screen name="Home" component={BottomTabNavigator} />
                 <Stack.Screen name="CreateBasket"  component={CreateBasketScreen}/>
                 <Stack.Screen name="OrderStatus" component={OrderStatusScreen}/>
+                <Stack.Screen name="Checkout" component={CheckoutScreen}/>
           </Stack.Navigator>
           </NavigationContainer>
         </AppearanceProvider>
