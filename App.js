@@ -156,14 +156,6 @@ export default function App(props) {
                 height:80,
               },
             }}>
-<<<<<<< HEAD
-                <Stack.Screen name='SignIn' options={{ headerShown: false }} component={SignInScreen}/>
-                <Stack.Screen name='SignUp' options={{ headerShown: false }} component={SignUpScreen}/>
-                <Stack.Screen name="Home" component={BottomTabNavigator} />
-                <Stack.Screen name="CreateBasket"  component={CreateBasketScreen}/>
-                <Stack.Screen name="OrderStatus" component={OrderStatusScreen}/>
-                <Stack.Screen name="Checkout" component={CheckoutScreen}/>
-=======
                   <Stack.Screen name='SignIn' options={{ headerShown: false }} component={SignInScreen}/>
                   <Stack.Screen name='Verification' options={{ headerShown: false }} component={VerificationScreen}/>
                   <Stack.Screen name='SignUp' options={{ headerShown: false }} component={SignUpScreen}/>
@@ -183,7 +175,6 @@ export default function App(props) {
                   <Stack.Screen name="OrderStatus" component={OrderStatusScreen}/>      
                 </>
               )}  */}
->>>>>>> df13dd910279495da028cc432961687370b5da78
           </Stack.Navigator>
           </NavigationContainer>
         </AppearanceProvider>
