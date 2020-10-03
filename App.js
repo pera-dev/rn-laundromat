@@ -162,6 +162,8 @@ export default function App(props) {
                   <Stack.Screen name="Home" component={BottomTabNavigator} />
                   <Stack.Screen name="CreateBasket"  component={CreateBasketScreen}/>
                   <Stack.Screen name="OrderStatus" component={OrderStatusScreen}/>  
+                  <Stack.Screen name="Checkout" component={CheckoutScreen}/>
+
              {/*  {state.userToken == null ? (
                 <>
                   <Stack.Screen name='SignIn' options={{ headerShown: false }} component={SignInScreen}/>
