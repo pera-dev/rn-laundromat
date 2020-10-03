@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import * as React from "react";
 import { Text, View, TextInput, Button, StyleSheet, TouchableOpacity, Platform, Alert } from "react-native";
 import { FirebaseRecaptchaVerifierModal } from "expo-firebase-recaptcha";
@@ -101,15 +100,9 @@ import {
     Keyboard,
     TouchableWithoutFeedback, Image,
     Alert
-<<<<<<< HEAD
 
 } from 'react-native'
 
-=======
-
-} from 'react-native'
-
->>>>>>> signupscreen
 const SignUpScreen=()=>{
     const [mobileNumber, setMobileNumber] = React.useState('');
 
@@ -141,10 +134,6 @@ const SignUpScreen=()=>{
             </TouchableWithoutFeedback>
         </View>
     );
-<<<<<<< HEAD
->>>>>>> signupScreen
-=======
->>>>>>> signupscreen
 }
 
 
