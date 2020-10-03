@@ -101,9 +101,15 @@ import {
     Keyboard,
     TouchableWithoutFeedback, Image,
     Alert
+<<<<<<< HEAD
 
 } from 'react-native'
 
+=======
+
+} from 'react-native'
+
+>>>>>>> signupscreen
 const SignUpScreen=()=>{
     const [mobileNumber, setMobileNumber] = React.useState('');
 
@@ -135,7 +141,10 @@ const SignUpScreen=()=>{
             </TouchableWithoutFeedback>
         </View>
     );
+<<<<<<< HEAD
 >>>>>>> signupScreen
+=======
+>>>>>>> signupscreen
 }
 
 
