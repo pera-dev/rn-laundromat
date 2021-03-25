@@ -38,6 +38,7 @@
     "expo-splash-screen": "^0.2.3",
     "font-awesome": "^4.7.0",
     "react-native-appearance": "~0.3.3",
+    "native-base": "^2.15.2",
     "react-native-drop-down-item": "^1.1.0",
     "react-native-elements": "^2.0.2",
     "react-native-gesture-handler": "~1.6.0",

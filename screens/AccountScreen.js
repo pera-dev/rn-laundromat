@@ -1,58 +1,96 @@
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity
+} from 'react-native';
 
-import * as React from 'react';
-import { StyleSheet, View, Alert } from 'react-native';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
-import { Avatar,Text } from 'react-native-elements';
+export default class AccountScreen extends Component {
 
-export default function AccountScreen() {
-  const userName = 'Alex';
+  const username='alex';
 
-  return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          
-            <View style={{flexDirection:'row',justifyContent:'center'}}>
-            <Text h3 h3Style={{fontWeight:'bold'}}>{userName  } </Text>
-            <Avatar
-                source={{
-                    uri:
-                    'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-                }}
-                size='xlarge'
-                rounded
-                showAccessory
-                onAccessoryPress={ () => Alert.alert("Chnage picture")}
-                />
+  render() {
+    return (
+      <View style={styles.container}>
+          <View style={styles.header}></View>
+          <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
+          <View style={styles.body}>
+            <View style={styles.bodyContent}>
+              <Text style={styles.name}>{this.username}</Text>
+              <Text style={styles.info}>UX Designer / Mobile developer</Text>
+              <Text style={styles.description}>Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum electram expetendis, omittam deseruisse consequuntur ius an,</Text>
+              
+              <TouchableOpacity style={styles.buttonContainer}>
+                <Text>Opcion 1</Text>  
+              </TouchableOpacity>              
+              <TouchableOpacity style={styles.buttonContainer}>
+                <Text>Opcion 2</Text> 
+              </TouchableOpacity>
             </View>
-    </ScrollView>
-  );
+        </View>
+      </View>
+    );
+  }
 }
 
-
 const styles = StyleSheet.create({
-  container: {
+  header:{
+    backgroundColor: "#00BFFF",
+    height:200,
+  },
+  avatar: {
+    width: 130,
+    height: 130,
+    borderRadius: 63,
+    borderWidth: 4,
+    borderColor: "white",
+    marginBottom:10,
+    alignSelf:'center',
+    position: 'absolute',
+    marginTop:130
+  },
+  name:{
+    fontSize:22,
+    color:"#FFFFFF",
+    fontWeight:'600',
+  },
+  body:{
+    marginTop:40,
+  },
+  bodyContent: {
     flex: 1,
-    //backgroundColor: '#fafafa',
+    alignItems: 'center',
+    padding:30,
   },
-  contentContainer: {
-    paddingTop: 15,
+  name:{
+    fontSize:28,
+    color: "#696969",
+    fontWeight: "600"
   },
-  optionIconContainer: {
-    marginRight: 12,
+  info:{
+    fontSize:16,
+    color: "#00BFFF",
+    marginTop:10
   },
-  option: {
-    backgroundColor: '#fdfdfd',
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth: 0,
-    borderColor: '#ededed',
+  description:{
+    fontSize:16,
+    color: "#696969",
+    marginTop:10,
+    textAlign: 'center'
   },
-  lastOption: {
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  optionText: {
-    fontSize: 15,
-    alignSelf: 'flex-start',
-    marginTop: 1,
+  buttonContainer: {
+    marginTop:10,
+    height:45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom:20,
+    width:250,
+    borderRadius:30,
+    backgroundColor: "#00BFFF",
   },
 });
+
+                              
