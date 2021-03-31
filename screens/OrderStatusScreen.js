@@ -10,6 +10,12 @@ export default function App() {
       <View style={styles.order1}>
         <Text>Order1 </Text>
       </View>
+      <View style={styles.order}>
+        <Text>Order 2 </Text>
+      </View>
+      <View style={styles.order}>
+        <Text>Order 3 </Text>
+      </View>
       
       
     </View>
