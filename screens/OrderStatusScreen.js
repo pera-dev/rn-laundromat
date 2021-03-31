@@ -16,7 +16,11 @@ export default function App() {
       <View style={styles.order}>
         <Text>Order 3 </Text>
       </View>
-      
+      <Button
+          onPress={}
+          title="Track My Order"
+          color="#f194ff"
+        />
       
     </View>
   );
