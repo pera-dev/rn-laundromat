@@ -6,16 +6,18 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Text>My Orders</Text>
-      <View style={styles.order1}>
-        <Text>Order1 </Text>
-      </View>
-      <View style={styles.order}>
-        <Text>Order 2 </Text>
-      </View>
-      <View style={styles.order}>
-        <Text>Order 3 </Text>
-      </View>
+      <Text>FeedBack </Text>
+      <View style={styles.feedbackArea}>
+        <TextInput
+          placeholder = "Message"
+          style = {styles.input}
+        />
+        <Button
+          onPress={}
+         title="Submit"
+          color="#f194ff"
+        />
+        </View>
       
       
     </View>
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff259",
     
   },
-  order1: {
+  feedbackArea: {
     borderWidth: 1,
     padding:50,
     borderColor:"#000",
@@ -37,15 +39,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 150,
     marginBottom: 15,
+    
   },
-  order: {
-    borderWidth: 1,
-    padding:50,
-    borderColor:"#000",
-    alignItems: "center",
-    marginTop: 10,
-    marginBottom: 15,
-    borderRadius:20,
-
+  
+  input: {
+    height: 200,
   },
 });
