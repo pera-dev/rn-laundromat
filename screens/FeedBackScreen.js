@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, StyleSheet, Text, TextInput, View, CheckBox } from "react-native";
 
 export default function App() {
   return (
@@ -16,6 +16,31 @@ export default function App() {
           onPress={}
          title="Submit"
           color="#f194ff"
+        />
+        </View>
+        <Text>Select the quality</Text>
+        <View>
+        <Text>Best</Text>
+        <CheckBox
+          value={isSelected}
+          onValueChange={setSelection}
+          style={styles.checkbox}
+        />
+        </View>
+        <View>
+        <Text>Good</Text>
+        <CheckBox
+          value={isSelected}
+          onValueChange={setSelection}
+          style={styles.checkbox}
+        />
+        </View>
+        <View>
+        <Text>Bad</Text>
+        <CheckBox
+          value={isSelected}
+          onValueChange={setSelection}
+          style={styles.checkbox}
         />
         </View>
       
