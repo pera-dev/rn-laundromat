@@ -6,24 +6,28 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Text>Settings</Text>
-      <View style={styles.option1}>
-        <Text>Account </Text>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Settings</Text>
       </View>
-      <View style={styles.option}>
-        <Text>Notifications </Text>
-      </View>
-      <View style={styles.option}>
-        <Text>Apperance </Text>
-      </View>
-      <View style={styles.option}>
-        <Text>Privacy and Securty </Text>
-      </View>
-      <View style={styles.option}>
-        <Text>Help and Support</Text>
-      </View>
-      <View style={styles.option}>
-        <Text>About</Text>
+      <View style={styles.optionArea}>
+        <View style={styles.option1}>
+          <Text style={styles.optionText}>Account </Text>
+        </View>
+        <View style={styles.option}>
+          <Text style={styles.optionText}>Notifications </Text>
+        </View>
+        <View style={styles.option}>
+          <Text style={styles.optionText}>Apperance </Text>
+        </View>
+        <View style={styles.option}>
+          <Text style={styles.optionText}>Privacy and Securty </Text>
+        </View>
+        <View style={styles.option}>
+          <Text style={styles.optionText}>Help and Support</Text>
+        </View>
+        <View style={styles.option}>
+          <Text style={styles.optionText}>About</Text>
+        </View>
       </View>
     </View>
   );
@@ -31,9 +35,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 50,
+    // padding: 50,
+
     flex: 1,
-    backgroundColor: "#fff259",
+    backgroundColor: "#fff",
     // alignItems: "center",
     // justifyContent: "center",
   },
@@ -50,5 +55,20 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginTop: 10,
     marginBottom: 15,
+  },
+  header: {
+    paddingTop: 50,
+    backgroundColor: "#0071BD",
+    padding: 10,
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  optionText: {
+    fontSize: 20,
+  },
+  optionArea: {
+    margin: 50,
   },
 });
